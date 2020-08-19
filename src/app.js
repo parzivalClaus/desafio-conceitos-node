@@ -40,14 +40,12 @@ app.put("/repositories/:id", (request, response) => {
     return response.status(400).json({ error: "Repository does not exist." });
   }
 
-  const repository = repositories.find((repository) => repository.id === id);
-
   const newRepository = {
     id,
     url,
     title,
     techs,
-    likes: repository.likes,
+    likes: repositories[repositoryIndex].likes,
   };
 
   repositories[repositoryIndex] = newRepository;
